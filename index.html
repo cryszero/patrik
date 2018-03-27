@@ -25,7 +25,7 @@
                     </ul>
                     <ul class="header__anchor-list">
                         <li class="header__anchor-item  header__anchor-item--gold"><a href="#" class="header__anchor-link">Главная</a></li>
-                        <li class="header__anchor-item  header__anchor-item--orange"><a href="#" class="header__anchor-link">Обо мне</a></li>
+                        <li class="header__anchor-item  header__anchor-item--orange"><a href="#about" class="header__anchor-link">Обо мне</a></li>
                         <li class="header__anchor-item  header__anchor-item--pink"><a href="#" class="header__anchor-link">Портфолио</a></li>
                         <li class="header__anchor-item  header__anchor-item--indigo"><a href="#" class="header__anchor-link">Отзывы</a></li>
                         <li class="header__anchor-item  header__anchor-item--blue"><a href="#" class="header__anchor-link">Цены</a></li>
@@ -37,36 +37,89 @@
                 <p class="header__title">что я делаю</p>
                 <ul class="header__services-list">
                     <li class="header__services-item">
-                        <p class="header__service  header__service--bigger">Запись</p>
-                        <p class="header__service">Сведение</p>
-                        <p class="header__service">Мастеринг</p>
+                        <p class="header__service  header__service--bigger  header__service--from-top">Запись</p>
+                        <p class="header__service  header__service--from-right">Сведение</p>
+                        <p class="header__service  header__service--from-left">Мастеринг</p>
                     </li>
                     <li class="header__services-item">
-                        <p class="header__service">Аранжировка</p>
-                        <p class="header__service">Авторская музыка</p>
-                        <p class="header__service">Минусовки</p>
+                        <p class="header__service  header__service--from-left">Аранжировка</p>
+                        <p class="header__service  header__service--from-right">Авторская музыка</p>
+                        <p class="header__service  header__service--from-right">Минусовки</p>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
     <main>
-    	<section class="about" id="about">
-    		<div class="container">
-    		<ul class="about__features">
-    			<li class="about__features-item">
-    				<p class="about__feature-description  about__feature-description--terms">фиксированные сроки</p>
-    			</li>
-    			<li class="about__features-item">
-    				<p class="about__feature-description  about__feature-description--creative">творческий подход к работе</p>
-    			</li>
-    			<li class="about__features-item">
-    				<p class="about__feature-description  about__feature-description--equipment">профессиональное оборудование</p>
-    			</li>
-    		</ul>
-    		</div>
-    	</section>
+        <section class="about" id="about">
+            <div class="container">
+                <ul class="about__features">
+                    <li class="about__features-item">
+                        <p class="about__feature-description  about__feature-description--terms">фиксированные сроки</p>
+                    </li>
+                    <li class="about__features-item">
+                        <p class="about__feature-description  about__feature-description--creative">творческий подход к работе</p>
+                    </li>
+                    <li class="about__features-item">
+                        <p class="about__feature-description  about__feature-description--equipment">профессиональное оборудование</p>
+                    </li>
+                </ul>
+                <div class="about__slider">
+                    <div class="about__slide  about__slide--1">
+                        <p class="about__slide-title">привет, меня зовут дмитрий патрик.
+                            <br/>я звукорежиссёр и мьюзикмейкер.</p>
+                        <ul class="about__slide-list">
+                            <li class="about__slide-item"><span class="about__slide-item  about__slide-item--orange">я могу помочь вам:</span></li>
+                            <li class="about__slide-item">1.в изготовлении минусовки;</li>
+                            <li class="about__slide-item">2.в доработке вашей аранжировки;</li>
+                            <li class="about__slide-item">3.в создании авторской композиции;</li>
+                            <li class="about__slide-item">4.в сведении и мастеринге вашего микса.</li>
+                        </ul>
+                    </div>
+                    <div class="about__slide  about__slide--2  about__slide--hidden">
+                        <ul class="about__slide-list  ">
+                        	<li class="about__slide-item">Я занимаюсь музыкой с 2002 года.<br/> Звукорежиссурой как концертной так и студийной с 2007.</li>
+                        	<li class="about__slide-item">Я Являюсь победителем гранд-при 14-го межрегионального фестиваля<br/> видеоклипов “люблю тебя. песни победителей”</li>
+                        	<li class="about__slide-item">Мною написаны композиции для рекламы, танцевальных конкурсов, детского евровидения, сериалов и короткометражных фильмов.</li>
+                        	<li class="about__slide-item">За моими плечами опыт полного звукового оформления для Танцевально-музыкальных спектаклей</li>
+                        	<li class="about__slide-item">Мои арранжировки и сведенные миксы запускают в ротации федеральных радиостанций и продаются в более 20 странах мира</li>
+                        </ul>
+                    </div>
+                    <ul class="about__switches-list">
+                        <li class="about__switches-item">
+                            <button class="about__switch  about__switch--active"></button>
+                        </li>
+                        <li class="about__switches-item">
+                            <button class="about__switch"></button>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="about__statistics">
+                	<li class="about__statistics-item  about__statistics-item--years">
+                		<span class="about__statistics-number">11</span>
+                		<p class="about__statistics-description">лет работы в сфере звука</p>
+                	</li>
+                	<li class="about__statistics-item  about__statistics-item--clients">
+                		<span class="about__statistics-number">170</span>
+                		<p class="about__statistics-description">довольных клиентов</p>
+                	</li>
+                	<li class="about__statistics-item  about__statistics-item--minuses">
+                		<span class="about__statistics-number">326</span>
+                		<p class="about__statistics-description">минусов изготовлено</p>
+                	</li>
+                	<li class="about__statistics-item  about__statistics-item--tracks">
+                		<span class="about__statistics-number">738</span>
+                		<p class="about__statistics-description">сведенных треков</p>
+                	</li>
+                	<li class="about__statistics-item  about__statistics-item--compositions">
+                		<span class="about__statistics-number">155</span>
+                		<p class="about__statistics-description">авторских композиций</p>
+                	</li>
+                </ul>
+            </div>
+        </section>
     </main>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
