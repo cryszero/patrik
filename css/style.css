@@ -198,7 +198,6 @@ body {
 
 .about {
   background: #efefef url("../img/background.jpg") no-repeat;
-  background-size: 100%;
   background-position: 50% 50%;
   padding-bottom: 90px; }
 
@@ -254,7 +253,7 @@ body {
     background: url("../img/patrik-photo.png");
     position: absolute;
     bottom: 0;
-    left: 90px; }
+    left: 89px; }
 
 .about__slide {
   position: absolute;
@@ -389,6 +388,14 @@ body {
   padding: 0;
   font-size: 16.67px;
   font-family: 'BebasNeue Regular'; }
+
+@media (max-width: 1161px) {
+  .about__slider::before {
+    left: 30px; }
+  .about__slide--2 {
+    max-width: 500px; }
+    .about__slide--2 .about__slide-item {
+      font-size: 22px; } }
 
 @keyframes rotation {
   0% {
