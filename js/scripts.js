@@ -7,10 +7,10 @@ let touchendX = 0;
 if (slider && sliderButtons && slides) {
     sliderButtons.forEach(button => button.addEventListener('click', slide));
     slider.addEventListener('touchstart', function(evt) {
-        touchstartX = evt.screenX;
+        touchstartX = evt.touches[0].screenX;
     });
     slider.addEventListener('touchend', function(evt) {
-        touchendX = evt.screenX;
+        touchendX = evt.changedTouches[0].screenX;
         handleSwipe();
     });
 }
@@ -24,26 +24,21 @@ function slide() {
 
 function handleSwipe() {
     var index = 0;
-    if (touchstartX > touchendX) {
-        sliderButtons.forEach(button => function() {
+    sliderButtons.forEach(button => {
             if (button.classList.contains('about__switch--active')) {
-                index = sliderButtons.indexOf(this);
+                index = sliderButtons.indexOf(button);
             }
         });
+    if (touchstartX > touchendX) {
+        
         if (index < sliderButtons.length - 1) {
+        		console.log(index);
             sliderButtons[index].classList.remove('about__switch--active');
             sliderButtons[index + 1].classList.add('about__switch--active');
             slides[index].classList.add('about__slide--hidden');
             slides[index + 1].classList.remove('about__slide--hidden');
         }
-    }
-
-    if (touchstartX < touchendX) {
-        sliderButtons.forEach(button => function() {
-            if (button.classList.contains('about__switch--active')) {
-                index = sliderButtons.indexOf(this);
-            }
-        });
+    } else if (touchstartX < touchendX) {
         if (index > 0) {
             sliderButtons[index].classList.remove('about__switch--active');
             sliderButtons[index - 1].classList.add('about__switch--active');
