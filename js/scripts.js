@@ -1,13 +1,56 @@
-const sliderButtons = [...document.querySelectorAll('.about__switch')];
-const slides = [...document.querySelectorAll('.about__slide')];
+const slider = document.querySelector('.about__slider');
+const sliderButtons = [...slider.querySelectorAll('.about__switch')];
+const slides = [...slider.querySelectorAll('.about__slide')];
+let touchstartX = 0;
+let touchendX = 0;
 
-if (sliderButtons && slides) {
-    sliderButtons.forEach(button => button.addEventListener('click', function() {
-        sliderButtons.forEach(button => button.classList.remove('about__switch--active'));
-        this.classList.add('about__switch--active');
-        slides.forEach(slide => slide.classList.add('about__slide--hidden'));
-        slides[sliderButtons.indexOf(this)].classList.remove('about__slide--hidden');
-    }));
+if (slider && sliderButtons && slides) {
+    sliderButtons.forEach(button => button.addEventListener('click', slide));
+    slider.addEventListener('touchstart', function(evt) {
+        touchstartX = evt.screenX;
+    });
+    slider.addEventListener('touchend', function(evt) {
+        touchendX = evt.screenX;
+        handleSwipe();
+    });
+}
+
+function slide() {
+    sliderButtons.forEach(button => button.classList.remove('about__switch--active'));
+    this.classList.add('about__switch--active');
+    slides.forEach(slide => slide.classList.add('about__slide--hidden'));
+    slides[sliderButtons.indexOf(this)].classList.remove('about__slide--hidden');
+}
+
+function handleSwipe() {
+    var index = 0;
+    if (touchstartX > touchendX) {
+        sliderButtons.forEach(button => function() {
+            if (button.classList.contains('about__switch--active')) {
+                index = sliderButtons.indexOf(this);
+            }
+        });
+        if (index < sliderButtons.length - 1) {
+            sliderButtons[index].classList.remove('about__switch--active');
+            sliderButtons[index + 1].classList.add('about__switch--active');
+            slides[index].classList.add('about__slide--hidden');
+            slides[index + 1].classList.remove('about__slide--hidden');
+        }
+    }
+
+    if (touchstartX < touchendX) {
+        sliderButtons.forEach(button => function() {
+            if (button.classList.contains('about__switch--active')) {
+                index = sliderButtons.indexOf(this);
+            }
+        });
+        if (index > 0) {
+            sliderButtons[index].classList.remove('about__switch--active');
+            sliderButtons[index - 1].classList.add('about__switch--active');
+            slides[index].classList.add('about__slide--hidden');
+            slides[index - 1].classList.remove('about__slide--hidden');
+        }
+    }
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,7 +90,7 @@ function getOffsetRect(el) {
 
 window.addEventListener('scroll', function() {
     if (statistics && statsWindow) {
-        if (getOffsetRect(statsWindow).top + statsWindow.offsetHeight/2 < window.innerHeight + window.pageYOffset && !alreadyDone) {
+        if (getOffsetRect(statsWindow).top + statsWindow.offsetHeight / 2 < window.innerHeight + window.pageYOffset && !alreadyDone) {
             statistics.forEach(counting);
             alreadyDone = true;
         }
