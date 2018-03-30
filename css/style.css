@@ -154,7 +154,7 @@ body {
   margin: 0;
   font-size: 62.5px;
   color: #fff;
-  background: #e09d12;
+  background: #ffb001;
   padding: 25px 47px;
   text-transform: uppercase;
   font-family: 'BebasNeue Regular', Arial;
@@ -164,7 +164,8 @@ body {
 
 .header__services-list {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-size: 0; }
 
 .header__services-item {
   list-style: none;
@@ -197,7 +198,8 @@ body {
   margin: 0 auto; }
 
 .about {
-  background: #efefef url("../img/background.jpg") no-repeat;
+  background: #efefef url("../img/background-gray.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   padding-bottom: 90px; }
@@ -220,7 +222,7 @@ body {
   padding: 0;
   margin: 0;
   position: relative;
-  font-family: 'BebasNeue Bold', Arial;
+  font-family: "BebasNeue Bold", sans-serif;
   font-size: 27px;
   max-width: 200px;
   text-align: center; }
@@ -270,7 +272,7 @@ body {
 
 .about__slide--2 .about__slide-item {
   font-size: 25px;
-  font-family: 'BebasNeue Bold';
+  font-family: "BebasNeue Bold", sans-serif;
   max-width: 627px;
   text-align: left;
   position: relative;
@@ -285,7 +287,7 @@ body {
 
 .about__slide--hidden {
   animation: slideLeft 300ms;
-  animation-fill-mode: both; }
+  animation-fill-mode: forwards; }
 
 .about__slide-title {
   padding: 0;
@@ -294,7 +296,7 @@ body {
 
 .about__slide-title,
 .about__slide-item {
-  font-family: 'BebasNeue Regular';
+  font-family: "BebasNeue Regular", sans-serif;
   font-size: 45.83px;
   text-align: center; }
 
@@ -308,7 +310,7 @@ body {
   margin-bottom: 15px; }
   .about__slide-item--orange {
     color: #d55a1d;
-    font-family: 'BebasNeue Bold';
+    font-family: "BebasNeue Bold", sans-serif;
     font-size: 41.67px;
     margin-bottom: 30px; }
   .about__slide-item:last-child {
@@ -388,7 +390,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16.67px;
-  font-family: 'BebasNeue Regular'; }
+  font-family: "BebasNeue Regular", sans-serif; }
 
 @media (max-width: 1161px) {
   .about {
@@ -399,6 +401,136 @@ body {
     max-width: 500px; }
     .about__slide--2 .about__slide-item {
       font-size: 22px; } }
+
+.portfolio {
+  background: #485767 url("../img/background-blue.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  padding-bottom: 31px; }
+
+.portfolio__title {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 83.33px;
+  font-family: "BebasNeue Bold", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 78px; }
+
+.portfolio__slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-wrap: wrap; }
+
+.portfolio__button {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  cursor: pointer;
+  z-index: 2; }
+  .portfolio__button::before {
+    content: '';
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; }
+  .portfolio__button--prev::before {
+    background: url("../img/button-prev.png"); }
+  .portfolio__button--prev {
+    left: 0; }
+  .portfolio__button--next {
+    right: 0;
+    margin-top: -58px; }
+  .portfolio__button--next::before {
+    background: url("../img/button-next.png"); }
+
+.portfolio__slides {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  position: relative;
+  min-height: 458px;
+  min-width: 400px;
+  max-width: 400px;
+  margin-left: 58px; }
+
+.portfolio__slide {
+  list-style: none;
+  position: absolute; }
+  .portfolio__slide--hidden {
+    animation: slideLeft 300ms;
+    animation-fill-mode: forwards; }
+
+.portfolio__slide-title {
+  padding: 0;
+  margin: 0;
+  font-family: "BebasNeue Bold", sans-serif;
+  font-size: 53.33px;
+  color: #fff;
+  padding-bottom: 9px;
+  margin-bottom: 20px;
+  border-bottom: 16px solid #ff7200; }
+
+.portfolio__slide-text {
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  font-family: "BebasNeue Regular", sans-serif;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 28px; }
+  .portfolio__slide-text:last-child {
+    margin-bottom: 0; }
+
+.portfolio__services {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; }
+
+.portfolio__services-item {
+  list-style: none;
+  position: relative;
+  font-size: 25px;
+  flex-basis: 200px;
+  font-family: "BebasNeue Regular", sans-serif;
+  color: #fff;
+  line-height: 28px; }
+  .portfolio__services-item:nth-child(even) {
+    flex-basis: 160px;
+    margin-left: 40px; }
+  .portfolio__services-item:last-child {
+    margin-bottom: 0; }
+  .portfolio__services-item::before {
+    content: '-';
+    position: relative;
+    margin-right: 3px; }
+
+.portfolio__video {
+  position: relative;
+  min-width: 790px; }
+  .portfolio__video::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -42px;
+    width: 880px;
+    height: 449px;
+    background: url("../img/macbook.png");
+    z-index: 1; }
+  .portfolio__video iframe {
+    position: relative;
+    top: -3px;
+    left: 76px;
+    z-index: 2; }
 
 @keyframes rotation {
   0% {
@@ -436,8 +568,7 @@ body {
 
 @keyframes slideLeft {
   0% {
-    opacity: 1;
     transform: translateX(0); }
   100% {
     opacity: 0;
-    transform: translateX(-40%); } }
+    transform: rotateY(180deg); } }
