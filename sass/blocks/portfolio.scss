@@ -146,6 +146,7 @@
 .portfolio__video {
 	position: relative;
 	min-width: 790px;
+	min-height: 449px;
 
 	&::before {
 		content: '';
@@ -163,5 +164,27 @@
 		top: -3px;
 		left: 76px;
 		z-index: 2;
+	}
+}
+
+@media (min-width: 1223px) and (max-width: 1397px) {
+	.portfolio .container {
+		max-width: 1220px;
+	}
+}
+
+@media (max-width: 1394px) {
+	.portfolio__slides {
+		min-width: 500px;
+		margin-left: 0;
+		margin-bottom: 30px;
+	}
+
+	.portfolio__button--prev {
+		left: 35px;
+	}
+
+	.portfolio__button--prev {
+		right: 35px;
 	}
 }

@@ -111,21 +111,8 @@ window.addEventListener('scroll', function statics(evt) {
 const sliderPortfolio = document.querySelector('.portfolio__slider');
 const slidesPortfolio = [...sliderPortfolio.querySelectorAll('.portfolio__slide')];
 const buttonsPortfolio = sliderPortfolio.querySelectorAll('.portfolio__button');
+const videoSrc = ['https://www.youtube.com/embed/09JKksaAM-Y?enablejsapi=1&widgetid=1', 'https://www.youtube.com/embed/Rs1UrDFGEG4',  'https://www.youtube.com/embed/bFj0TPcNkJY?enablejsapi=1&widgetid=1', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/16230721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true' ];
 
-buttonsPortfolio.forEach(button => button.addEventListener('click', () => {
-    var current;
-    slidesPortfolio.forEach(slide => slide.classList.contains('portfolio__slide--hidden') ? console.log('GOVNO') : current = slidesPortfolio.indexOf(slide));
-    if (button.classList.contains('portfolio__button--prev') && current != 0) {
-        slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
-        slidesPortfolio[current - 1].classList.remove('portfolio__slide--hidden');
-    }
-    if (button.classList.contains('portfolio__button--next') && current < slidesPortfolio.length - 1) {
-        slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
-
-        slidesPortfolio[current + 1].classList.remove('portfolio__slide--hidden');
-    }
-    console.log(current);
-}));
 
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/player_api";
@@ -138,7 +125,30 @@ function onYouTubePlayerAPIReady() {
     player = new YT.Player('player', {
         height: '357',
         width: '636',
-        videoId: 'bFj0TPcNkJY'
+        videoId: 'Rs1UrDFGEG4'
     });
+    player.getIframe().src = videoSrc[0];
 }
+
+buttonsPortfolio.forEach(button => button.addEventListener('click', () => {
+    var current;
+    slidesPortfolio.forEach(slide => {
+        if(!slide.classList.contains('portfolio__slide--hidden')) {
+            current = slidesPortfolio.indexOf(slide);
+        } 
+    });
+    if (button.classList.contains('portfolio__button--prev') && current != 0) {
+        slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
+        slidesPortfolio[current - 1].classList.remove('portfolio__slide--hidden');
+        player.getIframe().src = videoSrc[current-1];
+    }
+    if (button.classList.contains('portfolio__button--next') && current < slidesPortfolio.length - 1) {
+        slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
+
+        slidesPortfolio[current + 1].classList.remove('portfolio__slide--hidden');
+        player.getIframe().src = videoSrc[current+1];
+    }
+}));
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
