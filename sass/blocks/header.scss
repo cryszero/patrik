@@ -1,0 +1,235 @@
+.header {
+    background: url('../img/banner.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    
+}
+
+.header .container {
+    &::before {
+        content: '';
+        height: 119px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.header__top {
+    display: flex;
+}
+
+.header__search-logo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 7px 0 0 0;
+    z-index: 2;
+    margin-right: 127px;
+}
+
+.header__search {
+    background: #000;
+    border: 1px solid #8193a1;
+    padding: 5px 23px 5px 7px;
+    position: relative;
+    color: #8193a1;
+    font-family: 'BebasNeue Regular', Arial;
+    min-width: 208px;
+    box-sizing: border-box;
+
+    &::after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        right: 0;
+        top: 0;
+        display: block;
+        background: url('../img/magnifying-glass.png');
+    }
+}
+
+.header__magnifier {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url('../img/magnifying-glass.png');
+    background-repeat: no-repeat;
+    border: 0;
+    top: 15px;
+    left: 186px;
+}
+
+.header__links-bag {
+    z-index: 2;
+}
+
+.header__logo {
+    padding: 17px 0 9px 11px;
+}
+
+.header__social-list {
+    display: flex;
+    padding: 11px 0 13px 0;
+    margin: 0;
+}
+
+.header__social-item {
+    list-style: none;
+    margin-right: 30px;
+
+    &:first-child {
+        margin-left: auto;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.header__social-link {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: relative;
+        display: block;
+    }
+
+    &--vk::before {
+        width: 34px;
+        height: 20px;
+        background: url('../img/vk-logo.png');
+    }
+
+    &--instagram::before {
+        width: 21px;
+        height: 21px;
+        background: url('../img/instagram-logo.png');
+    }
+
+    &--envato::before {
+        width: 19px;
+        height: 21px;
+        background: url('../img/envato-logo.png');
+    }
+
+    &--soundcloud::before {
+        width: 36px;
+        height: 20px;
+        background: url('../img/soundcloud-logo.png');
+    }
+}
+
+.header__anchor-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.header__anchor-item {
+    list-style: none;
+    border-top: 10px solid red;
+    padding-top: 13px;
+    min-width: 99px;
+    text-align: center;
+
+    &--gold {
+        border-color: $color-gold;
+    }
+
+    &--orange {
+        border-color: $color-orange;
+    }
+
+    &--pink {
+        border-color: $color-pink;
+    }
+
+    &--indigo {
+        border-color: $color-indigo;
+    }
+
+    &--blue {
+        border-color: $color-blue;
+    }
+
+    &--lightblue {
+        border-color: $color-lightblue;
+    }
+}
+
+.header__anchor-link {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'SignPainter-HouseScript', Arial;
+    font-size: 25px;
+}
+
+.header__bottom {
+    text-align: center;
+    padding: 85px 0 315px 0;
+}
+
+.header__title {
+    margin: 0;
+    font-size: 62.5px;
+    color: #fff;
+    background: $color-gold;
+    padding: 25px 47px;
+    text-transform: uppercase;
+    font-family: 'BebasNeue Regular', Arial;
+    display: inline-block;
+    margin-bottom: 39px;
+    animation: rotation 900ms;
+}
+
+.header__services-list {
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+.header__services-item {
+    list-style: none;
+    margin-bottom: 34px;
+
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.header__service {
+    display: inline-block;
+    color: #fff;
+    padding: 19px 34px;
+    margin: 0;
+    margin-right: 24px;
+    font-family: 'BebasNeue Bold', Arial;
+    font-size: 37.5px;
+    background: rgba(255, 255, 255, 0.1);
+
+    &--bigger {
+        padding: 19px 45px;
+    }
+
+    &--from-top {
+        animation: slideFromTop 900ms;
+    }
+
+    &--from-left {
+        animation: slideFromLeft 900ms;
+    }
+
+    &--from-right {
+        animation: slideFromRight 900ms;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

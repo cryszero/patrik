@@ -1,0 +1,167 @@
+.portfolio {
+	background: $background-blue;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	padding-bottom: 31px;
+}
+
+.portfolio__title {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	font-size: 83.33px;
+	font-family: $fontBebasBold;
+	color: #fff;
+	text-transform: uppercase;
+	margin-bottom: 78px;
+}
+
+.portfolio__slider {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	flex-wrap: wrap;
+}
+
+.portfolio__button {
+	background: transparent;
+	border: 0;
+	position: absolute;
+	width: 96px;
+	height: 96px;
+	cursor: pointer;
+	z-index: 2;
+
+
+	&::before {
+		content: '';
+		width: 96px;
+		height: 96px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+
+	}
+	
+	&--prev::before {
+		background: url('../img/button-prev.png');
+
+	}
+
+	&--prev {
+		left: 0;
+	}
+
+	&--next {
+		right: 0;
+		margin-top: -58px;
+	}
+
+	&--next::before {
+		background: url('../img/button-next.png');
+	}
+}
+
+.portfolio__slides {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	position: relative;
+	min-height: 458px;
+	min-width: 400px;
+	max-width: 400px;
+	margin-left: 58px;
+}
+
+.portfolio__slide {
+	list-style: none;
+	position: absolute;
+
+	&--hidden {
+		animation: slideLeft 300ms;
+		animation-fill-mode: forwards;
+	}
+}
+
+.portfolio__slide-title {
+	padding: 0;
+	margin: 0;
+	font-family: $fontBebasBold;
+	font-size: 53.33px;
+	color: #fff;
+	padding-bottom: 9px;
+	margin-bottom: 20px;
+	border-bottom: 16px solid $color-orange;
+}
+
+.portfolio__slide-text {
+	padding: 0;
+	margin: 0;
+	font-size: 25px;
+	font-family: $fontBebasReg;
+	color: #fff;
+	margin-bottom: 20px;
+	line-height: 28px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.portfolio__services {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.portfolio__services-item {
+	list-style: none;
+	position: relative;
+	font-size: 25px;
+	flex-basis: 200px;
+	font-family: $fontBebasReg;
+	color: #fff;
+	line-height: 28px;
+
+		&:nth-child(even) {
+			flex-basis: 160px;
+			margin-left: 40px;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&::before {
+		content: '-';
+		position: relative;
+		margin-right: 3px;
+	}
+}
+
+.portfolio__video {
+	position: relative;
+	min-width: 790px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -40px;
+		left: -42px;
+		width: 880px;
+		height: 449px;
+		background: url('../img/macbook.png');
+		z-index: 1;
+	}
+
+	& iframe {
+		position: relative;
+		top: -3px;
+		left: 76px;
+		z-index: 2;
+	}
+}

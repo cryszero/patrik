@@ -1,0 +1,277 @@
+.about {
+	background: $background-gray;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	padding-bottom: 90px;
+}
+
+.about__features {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	margin-top: -92px;
+	justify-content: center;
+	margin-bottom: 119px;
+}
+
+.about__features-item {
+	list-style: none;
+	margin-right: 110px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.about__feature-description {
+	padding: 0;
+	margin: 0;
+	position: relative;
+  font-family: $fontBebasBold;
+	font-size: 27px;
+	max-width: 200px;
+	text-align: center;
+
+	&::before {
+		content: '';
+		width: 187px;
+		height: 187px;
+		position: relative;
+		display: block;
+		margin-bottom: 15px;
+
+	}
+
+	&--terms::before {
+		background: url('../img/terms-logo.png');
+	}
+
+	&--creative::before {
+		background: url('../img/creative-logo.png');
+	}
+
+	&--equipment::before {
+		background: url('../img/equipment-logo.png');
+	}
+}
+
+.about__slider {
+	background: rgba(0, 0, 0, 0.2);
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	min-height: 547px;
+	margin-bottom: 74px;
+
+		&::before {
+		content: '';
+		width: 320px;
+		height: 613px;
+		background: url('../img/patrik-photo.png');
+		position: absolute;
+		bottom: 0;
+		left: 89px;
+	}
+}
+
+.about__slide {
+	position: absolute;
+	right: 0;
+	margin-left: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding: 83px 85px 79px 85px;
+	
+}
+
+.about__slide--2 {
+	padding: 83px 46px 99px 85px;
+}
+
+.about__slide--2 .about__slide-item {
+	font-size: 25px;
+		font-family: $fontBebasBold;
+		max-width: 627px;
+		text-align: left;
+		position: relative;
+		margin-bottom: 24px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: -70px;
+			width: 48px;
+			height: 48px;
+			background: url('../img/checked-icon.png');
+		}
+}
+
+.about__slide--hidden {
+	animation: slideLeft 300ms;
+	animation-fill-mode: forwards;
+}
+
+.about__slide-title {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 32px;
+}
+
+.about__slide-title,
+.about__slide-item {
+	font-family: $fontBebasReg;
+	font-size: 45.83px;
+	text-align: center
+}
+
+.about__slide-list {
+	padding: 0 15px 0 0;
+	margin: 0;
+}
+
+.about__slide-item {
+	list-style: none;
+	font-size: 37.5px;
+	margin-bottom: 15px;
+
+	&--orange {
+		color: #d55a1d;
+		font-family: $fontBebasBold;
+		font-size: 41.67px;
+		margin-bottom: 30px;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.about__switches-list {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 90%;
+	right: 30%;
+}
+
+.about__switches-item {
+	list-style: none;
+	margin-right: 10px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.about__switch {
+	height: 3px;
+	width: 20px;
+	border: 0;
+	background: #fff;
+	cursor: pointer;
+
+	&--active {
+		background: #ff5e00;
+	}
+
+	&:hover,
+	&:focus {
+		background: #ff9253;
+	}
+
+	&--active:hover,
+	&--active:focus {
+		background: #ff5e00;
+	}
+}
+
+.about__statistics {
+	padding: 0;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	max-width: 1168px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.about__statistics-item {
+	flex: 1;
+	list-style: none;
+	text-align: center;
+	position: relative;
+
+	&::before {
+		margin: 0 auto;
+		position: relative;
+		content: '';
+		display: block;
+		width: 73px;
+		margin-bottom: 2px;
+	}
+
+	&--years::before {
+		height: 73px;
+		background: url('../img/clock-icon.png');
+	}
+
+	&--clients::before {
+		height: 73px;
+		background: url('../img/hand-icon.png');
+	}
+
+	&--minuses::before {
+		height: 75px;
+		background: url('../img/notes-icon.png');
+	}
+
+	&--tracks::before {
+		height: 72px;
+		background: url('../img/mixer-icon.png');
+	}
+
+	&--compositions::before {
+		height: 74px;
+		background: url('../img/microphone-icon.png');
+	}
+}
+
+.about__statistics-number {
+	font-size: 75px;
+	font-family: Arial;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.about__statistics-description {
+	margin: 0;
+	padding: 0;
+	font-size: 16.67px;
+	font-family: $fontBebasReg;
+}
+
+@media (max-width: 1161px) {
+	.about {
+			background-size: auto;
+	}
+
+	.about__slider {
+		&::before {
+			left: 30px;
+		}
+	}
+
+	.about__slide--2 {
+		max-width: 500px;
+
+	.about__slide-item {
+		font-size: 22px;
+	}
+	}
+
+}
