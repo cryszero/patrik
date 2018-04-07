@@ -122,3 +122,13 @@
 
   color: rgba(0, 0, 0, .5);
 }
+
+@media (max-width: 970px) {
+	.advantages__name {
+		font-size: 27px;
+	}
+
+	.advantages__description {
+		font-size: 15px;
+	}
+}
