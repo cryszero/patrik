@@ -206,15 +206,15 @@ body {
 
 .about__features {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   margin-top: -92px;
   justify-content: space-around;
-  margin-bottom: 119px; }
+  margin-bottom: 119px;
+  max-width: 900px; }
 
 .about__features-item {
-  list-style: none;
-  margin-right: 110px; }
+  list-style: none; }
   .about__features-item:last-child {
     margin-right: 0; }
 
