@@ -211,12 +211,13 @@ body {
   margin: 0 auto;
   display: flex;
   margin-top: -92px;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 119px;
   max-width: 900px; }
 
 .about__features-item {
-  list-style: none; }
+  list-style: none;
+  flex: 1; }
   .about__features-item:last-child {
     margin-right: 0; }
 
@@ -397,6 +398,8 @@ body {
 @media (max-width: 1161px) {
   .about {
     background-size: auto; }
+  .about__feature-description {
+    font-size: 24px; }
   .about__slider::before {
     left: 30px; }
   .about__slide--2 {
@@ -620,23 +623,23 @@ body {
   display: block;
   font-family: "BebasNeue Bold", sans-serif;
   margin: 0 auto;
-  font-size: 38.7px;
+  font-size: 28px;
   margin-bottom: 25px;
   max-width: 283px; }
 
 .advantages__description {
   font-family: "BebasNeue Bold", sans-serif;
-  font-size: 19.35px;
+  font-size: 14px;
   max-width: 270px;
   margin: 0 auto;
   padding: 0;
   color: rgba(0, 0, 0, 0.5); }
 
-@media (max-width: 970px) {
+@media (min-width: 1399px) {
   .advantages__name {
-    font-size: 27px; }
+    font-size: 38px; }
   .advantages__description {
-    font-size: 15px; } }
+    font-size: 19px; } }
 
 .partners {
   background: #485767 url("../img/background-blue.jpg");

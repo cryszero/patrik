@@ -106,14 +106,14 @@
 	display: block;
   font-family: $fontBebasBold;
   margin: 0 auto;
-  font-size: 38.7px;
+  font-size: 28px;
   margin-bottom: 25px;
   max-width: 283px;
 }
 
 .advantages__description {
   font-family: $fontBebasBold;
-  font-size: 19.35px;
+  font-size: 14px;
   max-width: 270px;
 
 
@@ -123,12 +123,12 @@
   color: rgba(0, 0, 0, .5);
 }
 
-@media (max-width: 970px) {
+@media (min-width: 1399px) {
 	.advantages__name {
-		font-size: 27px;
+		font-size: 38px;
 	}
 
 	.advantages__description {
-		font-size: 15px;
+		font-size: 19px;
 	}
 }

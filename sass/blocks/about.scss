@@ -11,13 +11,14 @@
 	margin: 0 auto;
 	display: flex;
 	margin-top: -92px;
-	justify-content: space-around;
+	justify-content: space-between;
 	margin-bottom: 119px;
 	max-width: 900px;
 }
 
 .about__features-item {
 	list-style: none;
+	flex: 1;
 
 	&:last-child {
 		margin-right: 0;
@@ -258,6 +259,10 @@
 @media (max-width: 1161px) {
 	.about {
 			background-size: auto;
+	}
+
+	.about__feature-description {
+		font-size: 24px;
 	}
 
 	.about__slider {
