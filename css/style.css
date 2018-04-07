@@ -170,12 +170,13 @@ body {
 
 .header__services-item {
   list-style: none;
-  margin-bottom: 34px; }
+  margin-bottom: 34px;
+  display: flex;
+  justify-content: center; }
   .header__services-item:last-child {
     margin-bottom: 0; }
 
 .header__service {
-  display: inline-block;
   color: #fff;
   padding: 19px 34px;
   margin: 0;
@@ -225,7 +226,6 @@ body {
   position: relative;
   font-family: "BebasNeue Bold", sans-serif;
   font-size: 27px;
-  max-width: 200px;
   text-align: center; }
   .about__feature-description::before {
     content: '';

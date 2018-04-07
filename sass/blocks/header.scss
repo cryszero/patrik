@@ -196,6 +196,8 @@
 .header__services-item {
     list-style: none;
     margin-bottom: 34px;
+    display: flex;
+    justify-content: center;
 
 
     &:last-child {
@@ -204,7 +206,6 @@
 }
 
 .header__service {
-    display: inline-block;
     color: #fff;
     padding: 19px 34px;
     margin: 0;
