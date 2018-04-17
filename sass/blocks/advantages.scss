@@ -1,5 +1,5 @@
 .advantages {
-  padding: 45px 0 0 0;
+  padding: 45px 0 60px 0;
 
   background: $background-gray;
   background-repeat: no-repeat;
@@ -113,8 +113,7 @@
 
 .advantages__description {
   font-family: $fontBebasBold;
-  font-size: 14px;
-  max-width: 270px;
+  font-size: 11px;
 
 
   margin: 0 auto;
@@ -130,5 +129,6 @@
 
 	.advantages__description {
 		font-size: 19px;
+    max-width: 270px;
 	}
 }

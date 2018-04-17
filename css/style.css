@@ -405,13 +405,16 @@ body {
   .about__slide--2 {
     max-width: 500px; }
     .about__slide--2 .about__slide-item {
-      font-size: 22px; } }
+      font-size: 22px; }
+  .about__statistics-description {
+    font-size: 13.67px; } }
 
 .portfolio {
   background: #485767 url("../img/background-blue.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  padding-top: 15px;
   padding-bottom: 31px; }
 
 .portfolio__title {
@@ -553,7 +556,7 @@ body {
     right: 35px; } }
 
 .advantages {
-  padding: 45px 0 0 0;
+  padding: 45px 0 60px 0;
   background: #efefef url("../img/background-gray.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -629,8 +632,7 @@ body {
 
 .advantages__description {
   font-family: "BebasNeue Bold", sans-serif;
-  font-size: 14px;
-  max-width: 270px;
+  font-size: 11px;
   margin: 0 auto;
   padding: 0;
   color: rgba(0, 0, 0, 0.5); }
@@ -639,7 +641,8 @@ body {
   .advantages__name {
     font-size: 38px; }
   .advantages__description {
-    font-size: 19px; } }
+    font-size: 19px;
+    max-width: 270px; } }
 
 .partners {
   background: #485767 url("../img/background-blue.jpg");
@@ -669,6 +672,69 @@ body {
 .partners__item {
   list-style: none;
   margin-bottom: 55px; }
+
+.reviews {
+  padding: 65px 0;
+  background: #efefef url("../img/background-gray.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover; }
+
+.reviews .container {
+  padding: 25px 0 65px 0;
+  background: rgba(0, 0, 0, 0.2); }
+
+.reviews__title {
+  font-family: "BebasNeue Bold", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 55px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 65px; }
+
+.reviews__text {
+  font-family: Times New Roman;
+  font-size: 25px;
+  text-align: center;
+  max-width: 737px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 25px; }
+
+.reviews__author {
+  display: block;
+  font-size: 24px;
+  color: #ff7200;
+  text-align: center;
+  margin-bottom: 85px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif; }
+
+.reviews__controls {
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; }
+
+.reviews__controls-item {
+  margin-right: 10px;
+  list-style: none; }
+  .reviews__controls-item:last-child {
+    margin-right: 0; }
+
+.reviews__button {
+  border: 0;
+  padding: 0;
+  background: #fff;
+  min-height: 3px;
+  min-width: 20px; }
+  .reviews__button--active {
+    background: #ff7200; }
+  .reviews__button:hover, .reviews__button:focus {
+    background: #ffb001; }
+  .reviews__button--active:hover, .reviews__button--active:focus {
+    background: #ff7200; }
 
 @keyframes rotation {
   0% {
