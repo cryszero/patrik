@@ -1,0 +1,110 @@
+.price {
+    background: $background-blue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 35px 0 25px 0;
+}
+
+.price__title {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-family: $fontBebasBold;
+    font-size: 55px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.price__list {
+    padding: 0;
+    max-width: 790px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.price__item {
+    list-style: none;
+    display: flex;
+    font-family: $fontBebasBold;
+    font-size: 25px;
+    position: relative;
+
+    &::before {
+        content: attr(data-num);
+        position: absolute;
+        min-width: 52px;
+        padding: 12px 0 13px 0;
+        text-align: center;
+        top: 0;
+        left: -25px;
+        border-radius: 30px;
+        font-size: 25px;
+    }
+
+    &--dark::before {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    &--light::before {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    &--dark {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    &--light {
+        background: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.price__description {
+    padding: 0;
+    margin: 0;
+    padding: 10px 0 15px 40px;
+    flex: 1;
+    position: relative;
+
+    & span {
+        font-size: 13px;
+        position: absolute;
+    }
+}
+
+.price__amount {
+    padding: 10px 25px 15px 25px;
+    min-width: 125px;
+    text-align: center;
+    display: block;
+}
+
+.price__item--light .price__amount {
+    background: #dadbdc;
+}
+
+.price__item--dark .price__amount {
+    background: #eeeff0;
+}
+
+.price__done {
+	position: relative;
+	font-size: 28px;
+	color: #fff;
+	font-family: $fontBebasBold;
+	text-decoration: none;
+	text-align: center;
+	display: table;
+	margin: 0 auto;
+
+	&::before {
+		position: absolute;
+		width: 110%;
+		height: 2px;
+		content: '';
+		left: -5%;
+		top: 50%;
+		background: #fff;
+	}
+}
