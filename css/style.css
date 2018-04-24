@@ -774,7 +774,7 @@ body {
     padding: 12px 0 13px 0;
     text-align: center;
     top: 0;
-    left: -25px;
+    left: -27px;
     border-radius: 30px;
     font-size: 25px; }
   .price__item--dark::before {
@@ -825,6 +825,12 @@ body {
     left: -5%;
     top: 50%;
     background: #fff; }
+
+@media (max-width: 1000px) {
+  .price__description {
+    font-size: 28px; }
+    .price__description span {
+      font-size: 15px; } }
 
 @keyframes rotation {
   0% {
