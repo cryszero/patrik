@@ -481,7 +481,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "BebasNeue Bold", sans-serif;
-  font-size: 53.33px;
+  font-size: 50px;
   color: #fff;
   padding-bottom: 9px;
   margin-bottom: 20px;
@@ -494,7 +494,8 @@ body {
   font-family: "BebasNeue Regular", sans-serif;
   color: #fff;
   margin-bottom: 20px;
-  line-height: 28px; }
+  line-height: 28px;
+  text-align: justify; }
   .portfolio__slide-text:last-child {
     margin-bottom: 0; }
 
@@ -540,6 +541,15 @@ body {
     top: -3px;
     left: 76px;
     z-index: 2; }
+    .portfolio__video iframe .hidden {
+      display: none; }
+
+.portfolio__minus-link {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: -3px;
+  left: 76px; }
 
 @media (min-width: 1223px) and (max-width: 1397px) {
   .portfolio .container {
@@ -633,6 +643,7 @@ body {
 .advantages__description {
   font-family: "BebasNeue Bold", sans-serif;
   font-size: 11px;
+  text-align: justify;
   margin: 0 auto;
   padding: 0;
   color: rgba(0, 0, 0, 0.5); }
@@ -776,25 +787,23 @@ body {
     top: 0;
     left: -29px;
     border-radius: 30px;
-    font-size: 35px; }
-  .price__item--dark::before {
-    background: rgba(255, 255, 255, 0.7); }
-  .price__item--light::before {
-    background: rgba(255, 255, 255, 0.5); }
+    font-size: 35px;
+    background: #fff; }
   .price__item--dark {
-    background: rgba(255, 255, 255, 0.5); }
+    background: #dadbdc; }
   .price__item--light {
-    background: rgba(255, 255, 255, 0.7); }
+    background: #eeeff0; }
 
 .price__description {
   padding: 0;
   margin: 0;
-  padding: 10px 0 15px 40px;
+  padding: 10px 0 0 40px;
   flex: 1;
   position: relative; }
   .price__description span {
     font-size: 13px;
-    position: absolute; }
+    position: relative;
+    display: block; }
 
 .price__amount {
   padding: 10px 25px 15px 25px;
@@ -802,6 +811,8 @@ body {
   text-align: center;
   display: block;
   font-size: 31px; }
+  .price__amount--light {
+    background: #eeeff0; }
 
 .price__item--light .price__amount {
   background: #dadbdc; }
@@ -842,6 +853,8 @@ body {
   background: rgba(0, 0, 0, 0.4); }
 
 .footer__sections-control {
+  background: transparent;
+  border: 0;
   padding-top: 20px;
   min-width: 465px;
   text-align: center;
@@ -849,23 +862,130 @@ body {
   font-family: "BebasNeue Bold", sans-serif;
   font-size: 50px;
   color: #fff;
-  border-bottom: 15px solid #eba205; }
+  cursor: pointer; }
   .footer__sections-control--active {
-    border-color: #ff7100;
-    background: #ff7100;
     cursor: default; }
+
+.footer__sections-control--contacts {
+  border-bottom: 15px solid #eba205; }
+  .footer__sections-control--contacts.footer__sections-control--active {
+    background: #eba205; }
+
+.footer__sections-control--order {
+  border-bottom: 15px solid #ff7100; }
+  .footer__sections-control--order.footer__sections-control--active {
+    background: #ff7100; }
 
 .footer__content {
   background: #000;
   padding-top: 32px;
   padding-bottom: 46px;
-  border-bottom: 3px solid #2a2a2a; }
+  border-bottom: 3px solid #2a2a2a;
+  position: relative; }
+
+.footer__contacts {
+  max-width: 929px;
+  margin: 0 auto; }
+  .footer__contacts--hidden {
+    display: none; }
+
+.footer__contacts-personal {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.footer__personal-item {
+  list-style: none;
+  flex-basis: 463px;
+  margin-bottom: 54px;
+  position: relative;
+  display: flex;
+  align-items: center; }
+  .footer__personal-item::before {
+    content: '';
+    position: relative;
+    display: block;
+    margin-right: 15px; }
+  .footer__personal-item--phone::before {
+    width: 31px;
+    height: 31px;
+    background: url("../img/phone-logo.png"); }
+  .footer__personal-item--email::before {
+    width: 32px;
+    height: 23px;
+    background: url("../img/email-logo.png"); }
+  .footer__personal-item--vk::before {
+    width: 44px;
+    height: 26px;
+    background: url("../img/vk-yellow-logo.png"); }
+
+.footer__personal-text {
+  margin: 0;
+  font-family: "BebasNeue Bold", sans-serif;
+  font-size: 30px;
+  color: #fff; }
+
+.footer__personal-text--title {
+  font-size: 38px; }
+
+.footer__personal-link {
+  text-decoration: none;
+  color: #414141; }
+
+.footer__contacts-appeal {
+  margin: 0;
+  font-family: "BebasNeue Bold", sans-serif;
+  font-size: 35px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 25px; }
+
+.footer__social-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between; }
+
+.footer__social-item {
+  list-style: none; }
+
+.footer__social-link {
+  position: relative; }
+  .footer__social-link::before {
+    content: '';
+    position: relative;
+    display: block;
+    width: 69px;
+    height: 69px; }
+  .footer__social-link--vk::before {
+    width: 72px;
+    height: 69px;
+    background: url("../img/footer-vk-logo.png"); }
+  .footer__social-link--yt::before {
+    background: url("../img/footer-youtube-logo.png"); }
+  .footer__social-link--whatsapp::before {
+    background: url("../img/footer-whatsapp-logo.png"); }
+  .footer__social-link--instagram::before {
+    width: 68px;
+    height: 68px;
+    background: url("../img/footer-instagram-logo.png"); }
+  .footer__social-link--fb::before {
+    background: url("../img/footer-facebook-logo.png"); }
+  .footer__social-link--soundcloud::before {
+    background: url("../img/footer-soundcloud-logo.png"); }
+  .footer__social-link--envato::before {
+    background: url("../img/footer-envato-logo.png"); }
 
 .footer__form {
   display: flex;
   max-width: 929px;
   margin: 0 auto;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .footer__form--hidden {
+    display: none; }
 
 .footer__form-title {
   font-family: "BebasNeue Bold", sans-serif;
@@ -908,13 +1028,12 @@ body {
 .footer__submits {
   padding: 0;
   margin: 0;
-  align-self: flex-start; }
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; }
 
 .footer__submits-item {
-  margin-bottom: 22px;
   list-style: none; }
-  .footer__submits-item:last-child {
-    margin-bottom: 0; }
 
 .footer__button {
   font-family: "BebasNeue Bold", sans-serif;

@@ -15,11 +15,40 @@ if (sliderAbout && sliderAboutButtons && slidesAbout) {
     }, { passive: true });
 }
 
+const aboutSliderCurrentSlide = () =>  {
+    let currentSlide = 0;
+    sliderAboutButtons.forEach((button) => {
+        if(button.classList.contains('about__switch--active')) {
+            currentSlide = sliderAboutButtons.indexOf(button);
+        }
+    });
+    slideTimer(currentSlide);
+}
+
+let aboutSliderTimer = setTimeout(aboutSliderCurrentSlide, 8000);
+
 function slide() {
+    clearTimeout(aboutSliderTimer);
     sliderAboutButtons.forEach(button => button.classList.remove('about__switch--active'));
     this.classList.add('about__switch--active');
     slidesAbout.forEach(slide => slide.classList.add('about__slide--hidden'));
     slidesAbout[sliderAboutButtons.indexOf(this)].classList.remove('about__slide--hidden');
+    aboutSliderTimer = setTimeout(aboutSliderCurrentSlide, 8000);
+}
+
+function slideTimer(slideIndex) {
+    clearTimeout(aboutSliderTimer);
+    sliderAboutButtons.forEach(button => button.classList.remove('about__switch--active'));
+    slidesAbout.forEach(slide => slide.classList.add('about__slide--hidden'));
+    if(slideIndex < sliderAboutButtons.length-1) {
+        sliderAboutButtons[slideIndex+1].classList.add('about__switch--active');
+        slidesAbout[slideIndex+1].classList.remove('about__slide--hidden');
+    }
+    else {
+        sliderAboutButtons[0].classList.add('about__switch--active');
+        slidesAbout[0].classList.remove('about__slide--hidden');
+    }
+    aboutSliderTimer = setTimeout(aboutSliderCurrentSlide, 8000);
 }
 
 function handleSwipe() {
@@ -111,7 +140,7 @@ window.addEventListener('scroll', function statics(evt) {
 const sliderPortfolio = document.querySelector('.portfolio__slider');
 const slidesPortfolio = [...sliderPortfolio.querySelectorAll('.portfolio__slide')];
 const buttonsPortfolio = sliderPortfolio.querySelectorAll('.portfolio__button');
-const videoSrc = ['https://www.youtube.com/embed/09JKksaAM-Y?enablejsapi=1&widgetid=1', 'https://www.youtube.com/embed/Rs1UrDFGEG4',  'https://www.youtube.com/embed/bFj0TPcNkJY?enablejsapi=1&widgetid=1', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/16230721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true' ];
+const videoSrc = ['https://www.youtube.com/embed/09JKksaAM-Y?enablejsapi=1&widgetid=1', 'https://www.youtube.com/embed/Q_q4gdOfctg', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/16230721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'];
 
 
 var tag = document.createElement('script');
@@ -131,24 +160,49 @@ function onYouTubePlayerAPIReady() {
 }
 
 buttonsPortfolio.forEach(button => button.addEventListener('click', () => {
+    if(!player) {
+        onYouTubePlayerAPIReady();
+    }
     var current;
     slidesPortfolio.forEach(slide => {
         if(!slide.classList.contains('portfolio__slide--hidden')) {
             current = slidesPortfolio.indexOf(slide);
         } 
     });
+    
     if (button.classList.contains('portfolio__button--prev') && current != 0) {
         slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
         slidesPortfolio[current - 1].classList.remove('portfolio__slide--hidden');
-        player.getIframe().src = videoSrc[current-1];
+        player.getIframe().src = videoSrc[current-1] || videoSrc[0];
     }
     if (button.classList.contains('portfolio__button--next') && current < slidesPortfolio.length - 1) {
         slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
 
         slidesPortfolio[current + 1].classList.remove('portfolio__slide--hidden');
-        player.getIframe().src = videoSrc[current+1];
+        player.getIframe().src = videoSrc[current+1] || videoSrc[0];
+    }
+    if (current === slidesPortfolio.length-2) {
     }
 }));
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+const footerSectionButton = [...document.querySelectorAll('.footer__sections-control')];
+const footerContent = [...document.querySelector('.footer__content').children];
+
+footerSectionButton.forEach(button => button.addEventListener('click', () => {
+    footerSectionButton.forEach(active => active.classList.remove('footer__sections-control--active'));
+    const currentButton = footerSectionButton.indexOf(button);
+    button.classList.add('footer__sections-control--active');
+
+    footerContent.forEach(block => {
+        block.classList.add(block.classList[0]+'--hidden');
+    });
+    footerContent[currentButton].classList.remove([...footerContent[currentButton].classList].slice(-1));
+}));
+
+
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

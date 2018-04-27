@@ -25,12 +25,12 @@
                         <li class="header__social-item"><a href="#" class="header__social-link  header__social-link--soundcloud"></a></li>
                     </ul>
                     <ul class="header__anchor-list">
-                        <li class="header__anchor-item  header__anchor-item--gold"><a href="#" class="header__anchor-link">Главная</a></li>
+                        <li class="header__anchor-item  header__anchor-item--gold"><a class="header__anchor-link">Главная</a></li>
                         <li class="header__anchor-item  header__anchor-item--orange"><a href="#about" class="header__anchor-link">Обо мне</a></li>
                         <li class="header__anchor-item  header__anchor-item--pink"><a href="#portfolio" class="header__anchor-link">Портфолио</a></li>
-                        <li class="header__anchor-item  header__anchor-item--indigo"><a href="#" class="header__anchor-link">Отзывы</a></li>
-                        <li class="header__anchor-item  header__anchor-item--blue"><a href="#" class="header__anchor-link">Цены</a></li>
-                        <li class="header__anchor-item  header__anchor-item--lightblue"><a href="#" class="header__anchor-link">Контакты</a></li>
+                        <li class="header__anchor-item  header__anchor-item--indigo"><a href="#reviews" class="header__anchor-link">Отзывы</a></li>
+                        <li class="header__anchor-item  header__anchor-item--blue"><a href="#price" class="header__anchor-link">Цены</a></li>
+                        <li class="header__anchor-item  header__anchor-item--lightblue"><a href="#contacts" class="header__anchor-link">Контакты</a></li>
                     </ul>
                 </div>
             </div>
@@ -152,12 +152,13 @@
                         </li>
                         <li class="portfolio__slide  portfolio__slide--hidden">
                             <p class="portfolio__slide-title">минусовки</p>
-                            <p class="portfolio__slide-text">Ежегодно я изготваливаю более 50 минусовок. Создание каждой из них - это кропотливый и нелегкий процесс.</p>
-                            <p class="portfolio__slide-text">Так же у вас есть прекрасная возможность получить уже готовый результат, не затрачивая на это дополнительные денежные средства.</p>
+                            <p class="portfolio__slide-text">Ежегодно я изготавливаю более 50 минусовок. Создание каждой из них - это кропотливый и нелегкий процесс.</p>
+                            <p class="portfolio__slide-text">Также у вас есть прекрасная возможность получить уже готовый результат, не затрачивая на это дополнительные денежные средства.</p>
                             <p class="portfolio__slide-text">Готовые минусовки из нашего портфолио от 1000 руб.</p>
                         </li>
                     </ul>
                     <div class="portfolio__video">
+                        <a href="#" class="portfolio__minus-link"><img src="img/minus-examples.png" alt="" class="portfolio__minus-image" width="636" height="357"></a>
                         <div id="player"></div>
                     </div>
                     <button class="portfolio__button portfolio__button--next"></button>
@@ -206,7 +207,7 @@
                 </ul>
             </div>
         </section>
-        <section class="reviews">
+        <section class="reviews" id="reviews">
             <div class="container">
                 <h2 class="reviews__title">отзывы</h2>
                 <p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet distinctio asperiores saepe, voluptatem vero numquam nemo modi veritatis ipsa optio accusamus temporibus eos, doloribus labore dolores nihil iusto cumque aperiam!</p>
@@ -230,7 +231,7 @@
                 </ul>
             </div>
         </section>
-        <section class="price">
+        <section class="price" id="price">
             <div class="container">
                 <h2 class="price__title">стоимость услуг</h2>
                 <ul class="price__list">
@@ -296,47 +297,73 @@
     </main>
     <footer class="footer">
         <div class="footer__sections">
-            <a href="#" class="footer__sections-control">контакты</a>
-            <a href="#" class="footer__sections-control  footer__sections-control--active">оформить заказ</a>
+            <button href="#" class="footer__sections-control  footer__sections-control--contacts  footer__sections-control--active">контакты</button>
+            <button href="#" class="footer__sections-control  footer__sections-control--order">оформить заказ</button>
         </div>
         <div class="footer__content">
-            <p class="footer__form-title">Заполните небольшую форму и воплотите свои творческие идеи в жизнь!</p>
-        <form action="" class="footer__form">
-            <ul class="footer__inputs">
-                <li class="footer__inputs-item">
-                    <input type="text" class="footer__input" name="name" placeholder="как к вам обращаться?">
-                </li>
-                <li class="footer__inputs-item">
-                    <input type="text" class="footer__input" name="contacts" placeholder="ваши контакты (телефон/email/ссылка на  аккаунт соц.ссети)...">
-                </li>
-                <li class="footer__inputs-item">
-                    <input type="text" class="footer__input" name="service" placeholder="Какая услуга вас интересует?">
-                </li>
-                <li class="footer__inputs-item">
-                    <input type="text" class="footer__input" name="comment" placeholder="Ваши комментарии к заказу, ссылки на референс треки и/или исходные материалы...">
-                </li>
-            </ul>
-            <ul class="footer__submits">
-                <li class="footer__submits-item">
-                    <button class="footer__button  footer__button--file">
-                        Прикрепить файл
-                        <input type="file" class="footer__file">
-                    </button>
-                </li>
-                <li class="footer__submits-item">
-                    <button class="footer__button  footer__button--submit">отправить заказ</button>
-                </li>
-            </ul>
-        </form>
+            <section class="footer__contacts" id="contacts">
+                <ul class="footer__contacts-personal">
+                    <li class="footer__personal-item">
+                        <p class="footer__personal-text  footer__personal-text--title">вы можете связаться с нами:</p>
+                    </li>
+                    <li class="footer__personal-item  footer__personal-item--phone">
+                        <p class="footer__personal-text">телефон:  <a href="tel:+79517840757" class="footer__personal-link">+79517840757</a></p>
+                    </li>
+                    <li class="footer__personal-item  footer__personal-item--email">
+                        <p class="footer__personal-text">email:  <a href="mailto:dmitry.patrik@gmail.com" class="footer__personal-link">dmitry.patrik@gmail.com</a></p>
+                    </li>
+                    <li class="footer__personal-item  footer__personal-item--vk">
+                        <p class="footer__personal-text">страница в вк:  <a href="https://vk.com/pad_13" class="footer__personal-link">https://vk.com/pad_13</a></p>
+                    </li>
+                </ul>
+                <p class="footer__contacts-appeal">подписывайтесь и будьте в курсе моих новостей</p>
+                <ul class="footer__social-list">
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--vk"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--yt"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--whatsapp"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--instagram"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--fb"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--soundcloud"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link  footer__social-link--envato"></a></li>
+                </ul>
+            </section>
+            <form action="" class="footer__form  footer__form--hidden">
+                <p class="footer__form-title">Заполните небольшую форму и воплотите свои творческие идеи в жизнь!</p>
+                <ul class="footer__inputs">
+                    <li class="footer__inputs-item">
+                        <input type="text" class="footer__input" name="name" placeholder="как к вам обращаться?" autocomplete="name">
+                    </li>
+                    <li class="footer__inputs-item">
+                        <input type="text" class="footer__input" name="contacts" placeholder="ваши контакты (телефон/email/ссылка на  аккаунт соц.ссети)..." autocomplete="contacts">
+                    </li>
+                    <li class="footer__inputs-item">
+                        <input type="text" class="footer__input" name="service" placeholder="Какая услуга вас интересует?" autocomplete="service">
+                    </li>
+                    <li class="footer__inputs-item">
+                        <input type="text" class="footer__input" name="comment" placeholder="Ваши комментарии к заказу, ссылки на референс треки и/или исходные материалы..." autocomplete="comments">
+                    </li>
+                </ul>
+                <ul class="footer__submits">
+                    <li class="footer__submits-item">
+                        <button class="footer__button  footer__button--file">
+                            Прикрепить файл
+                            <input type="file" class="footer__file">
+                        </button>
+                    </li>
+                    <li class="footer__submits-item">
+                        <button class="footer__button  footer__button--submit">отправить заказ</button>
+                    </li>
+                </ul>
+            </form>
         </div>
         <div class="footer__bottom">
             <div class="container">
-            <div class="footer__copyrights">
-                <p class="footer__copyrights-row">© 2018 all rights reserved</p>
-                <p class="footer__copyrights-row">created by patrik &amp; pervov</p>
+                <div class="footer__copyrights">
+                    <p class="footer__copyrights-row">© 2018 all rights reserved</p>
+                    <p class="footer__copyrights-row">created by patrik &amp; pervov</p>
+                </div>
+                <img src="./img/patrik-logo.png" alt="Логотип Патрик" class="footer__logo" width="129" height="60">
             </div>
-            <img src="./img/patrik-logo.png" alt="Логотип Патрик" class="footer__logo" width="129" height="60">
-        </div>
         </div>
     </footer>
     <script src="js/scripts.js"></script>

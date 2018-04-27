@@ -41,35 +41,29 @@
         left: -29px;
         border-radius: 30px;
         font-size: 35px;
-    }
-
-    &--dark::before {
-        background: rgba(255, 255, 255, 0.7);
-    }
-
-    &--light::before {
-        background: rgba(255, 255, 255, 0.5);
+        background: #fff;
     }
 
     &--dark {
-        background: rgba(255, 255, 255, 0.5);
+        background: #dadbdc;
     }
 
     &--light {
-        background: rgba(255, 255, 255, 0.7);
+        background: #eeeff0;
     }
 }
 
 .price__description {
     padding: 0;
     margin: 0;
-    padding: 10px 0 15px 40px;
+    padding: 10px 0 0 40px;
     flex: 1;
     position: relative;
 
     & span {
         font-size: 13px;
-        position: absolute;
+        position: relative;
+        display: block;
     }
 }
 
@@ -79,6 +73,10 @@
     text-align: center;
     display: block;
     font-size: 31px;
+
+    &--light {
+        background: #eeeff0;
+    }
 }
 
 .price__item--light .price__amount {
