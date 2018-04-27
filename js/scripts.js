@@ -140,29 +140,92 @@ window.addEventListener('scroll', function statics(evt) {
 const sliderPortfolio = document.querySelector('.portfolio__slider');
 const slidesPortfolio = [...sliderPortfolio.querySelectorAll('.portfolio__slide')];
 const buttonsPortfolio = sliderPortfolio.querySelectorAll('.portfolio__button');
-const videoSrc = ['https://www.youtube.com/embed/09JKksaAM-Y?enablejsapi=1&widgetid=1', 'https://www.youtube.com/embed/Q_q4gdOfctg', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/16230721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'];
+const videoSrc = ['https://www.youtube.com/embed/09JKksaAM-Y?enablejsapi=1&widgetid=1', 'https://www.youtube.com/embed/Q_q4gdOfctg', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/414747102&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'];
+let playerWindow = document.getElementById('player');
+const portfolioLink = document.getElementById('portfolio-link');
+const videos = [
+    {
+        title: 'YouTube',
+        src: 'https://www.youtube.com/embed/09JKksaAM-Y?enablejsapi=1&widgetid=1'
+    },
 
+    {
+        title: 'YouTube',
+        src: 'https://www.youtube.com/embed/Q_q4gdOfctg'
+    },
+    {
+        title: 'SoundCloud',
+        src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/414747102&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+    },
+    {
+        title: 'Null',
+        src: null
+    }
+];
 
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// var tag = document.createElement('script');
+// tag.src = "https://www.youtube.com/player_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 
-function onYouTubePlayerAPIReady() {
-    player = new YT.Player('player', {
-        height: '357',
-        width: '636',
-        videoId: 'Rs1UrDFGEG4'
-    });
-    player.getIframe().src = videoSrc[0];
+// function onYouTubePlayerAPIReady() {
+//     player = new YT.Player('player', {
+//         height: '357',
+//         width: '636',
+//         videoId: 'Rs1UrDFGEG4'
+//     });
+//     player.getIframe().src = videoSrc[0];
+//     playerWindow = document.getElementById('player');
+// }
+
+player = document.createElement('iframe');
+player.id = 'iframe';
+player.frameborder = '0';
+player.allowfullscreen='1';
+player.allow='autoplay; encrypted-media';
+player.title='YT player';
+player.width = '636';
+player.height='357';
+player.src= videos[0].src;
+player.style.border='0';
+playerWindow.appendChild(player);
+
+function playerSlide(list, index) {
+    if(playerWindow.firstChild)
+        playerWindow.removeChild(playerWindow.firstChild);
+    player = document.createElement('iframe');
+    player.id = 'iframe';
+    player.width = '636';
+    player.height='357';
+    player.src= list[index].src;
+    player.style.border='0';
+    switch(list[index].title) {
+        case 'YouTube':
+            player.allowfullscreen='1';
+            player.frameborder = '0';
+            player.allow='autoplay; encrypted-media';
+            player.title='YT player';
+            playerWindow.appendChild(player);
+            break;
+        case 'SoundCloud':
+            player.scrolling='no';
+            player.frameborder = 'no';
+            player.allow='autoplay';
+            player.title='SoundCloud player'
+            playerWindow.appendChild(player);
+            break;
+        case 'Null':
+            portfolioLink.classList.remove('portfolio__minus-link--hidden');
+            break;
+    }
+    if(list[index].title != 'Null') {
+        portfolioLink.classList.add('portfolio__minus-link--hidden');
+    }
 }
 
 buttonsPortfolio.forEach(button => button.addEventListener('click', () => {
-    if(!player) {
-        onYouTubePlayerAPIReady();
-    }
     var current;
     slidesPortfolio.forEach(slide => {
         if(!slide.classList.contains('portfolio__slide--hidden')) {
@@ -173,15 +236,15 @@ buttonsPortfolio.forEach(button => button.addEventListener('click', () => {
     if (button.classList.contains('portfolio__button--prev') && current != 0) {
         slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
         slidesPortfolio[current - 1].classList.remove('portfolio__slide--hidden');
-        player.getIframe().src = videoSrc[current-1] || videoSrc[0];
+        // player.getIframe().src = videoSrc[current-1] || videoSrc[0];
+        playerSlide(videos, current-1);
     }
     if (button.classList.contains('portfolio__button--next') && current < slidesPortfolio.length - 1) {
         slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
-
         slidesPortfolio[current + 1].classList.remove('portfolio__slide--hidden');
-        player.getIframe().src = videoSrc[current+1] || videoSrc[0];
-    }
-    if (current === slidesPortfolio.length-2) {
+        // player.getIframe().src = videoSrc[current+1] || videoSrc[0];
+        playerSlide(videos, current+1);
+
     }
 }));
 

@@ -92,11 +92,13 @@
 
 .header__social-link {
     position: relative;
+    z-index: 3;
 
     &::before {
         content: '';
         position: relative;
         display: block;
+        z-index: -1;
     }
 
     &--vk::before {

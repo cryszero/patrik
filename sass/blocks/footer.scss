@@ -47,6 +47,7 @@
 	padding-bottom: 46px;
 	border-bottom: 3px solid #2a2a2a;
 	position: relative;
+	z-index: 2;
 }
 
 .footer__contacts {
@@ -138,6 +139,7 @@
 
 .footer__social-link {
 	position: relative;
+	z-index: 3;
 
 	&::before {
 		content: '';
@@ -145,6 +147,7 @@
 		display: block;
 		width: 69px;
 		height: 69px;
+		z-index: -1;
 	}
 
 	&--vk::before {
