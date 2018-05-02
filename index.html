@@ -327,7 +327,7 @@
                     <li class="footer__social-item"><a href="https://audiojungle.net/user/monkeysoundrfm" class="footer__social-link  footer__social-link--envato"></a></li>
                 </ul>
             </section>
-            <form action="" class="footer__form  footer__form--hidden">
+            <form method="post" class="footer__form  footer__form--hidden" id="order-form" enctype="multipart/form-data">
                 <p class="footer__form-title">Заполните небольшую форму и воплотите свои творческие идеи в жизнь!</p>
                 <ul class="footer__inputs">
                     <li class="footer__inputs-item">
@@ -345,13 +345,13 @@
                 </ul>
                 <ul class="footer__submits">
                     <li class="footer__submits-item">
-                        <button class="footer__button  footer__button--file">
-                            Прикрепить файл
-                            <input type="file" class="footer__file">
-                        </button>
+                        <div class="footer__button  footer__button--file">
+                            прикрепить<br/> файл
+                            <input type="file" class="footer__file" name="attachfile">
+                        </div>
                     </li>
                     <li class="footer__submits-item">
-                        <button class="footer__button  footer__button--submit">отправить заказ</button>
+                        <button class="footer__button  footer__button--submit">отправить<br/> заказ</button>
                     </li>
                 </ul>
             </form>

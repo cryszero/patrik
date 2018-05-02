@@ -249,17 +249,19 @@
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	flex: 1;
 }
 
 .footer__submits-item {
 	list-style: none;
+	margin-left: 41px;
 }
 
 .footer__button {
 	font-family: $fontBebasBold;
 	font-size: 33px;
 	padding: 20px 15px;
-	max-width: 194px;
+	text-align: center;
 	color: #fff;
 	background: #ff7100;
 	border: 0;
@@ -268,6 +270,10 @@
 
 	&--file {
 		position: relative;
+	}
+
+	&--submit {
+		width: 100%;
 	}
 
 	&:hover,

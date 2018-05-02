@@ -265,7 +265,112 @@ footerSectionButton.forEach(button => button.addEventListener('click', () => {
     footerContent[currentButton].classList.remove([...footerContent[currentButton].classList].slice(-1));
 }));
 
-
-
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+const orderForm = document.getElementById('order-form');
+
+function serialize (form) {
+    if (!form || form.nodeName !== "FORM") {
+            return;
+    }
+    var i, j, q = [];
+    for (i = form.elements.length - 1; i >= 0; i = i - 1) {
+        if (form.elements[i].name === "") {
+            continue;
+        }
+        switch (form.elements[i].nodeName) {
+            case 'INPUT':
+                switch (form.elements[i].type) {
+                    case 'text':
+                    case 'tel':
+                    case 'email':
+                    case 'hidden':
+                    case 'password':
+                    case 'button':
+                    case 'reset':
+                    case 'submit':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                    case 'checkbox':
+                    case 'radio':
+                        if (form.elements[i].checked) {
+                                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        }                                               
+                        break;
+                }
+                break;
+                case 'file':
+                break; 
+            case 'TEXTAREA':
+                    q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                    break;
+            case 'SELECT':
+                switch (form.elements[i].type) {
+                    case 'select-one':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                    case 'select-multiple':
+                        for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
+                            if (form.elements[i].options[j].selected) {
+                                    q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].options[j].value));
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 'BUTTON':
+                switch (form.elements[i].type) {
+                    case 'reset':
+                    case 'submit':
+                    case 'button':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                }
+                break;
+            }
+        }
+    return q.join("&");
+}
+
+orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let error = false;
+    const formData = new FormData(orderForm);
+    // orderForm.querySelectorAll('input').forEach(selector => {
+    //     if(selector.value === '' && selector.name!='file') {
+    //         alert('Заполните поле ' + selector.getAttribute('placeholder') + '!');
+    //         error = true;
+    //     } else if (selector.name==='file') {
+    //         formData.append('file', selector.files[0]);
+    //     } else {
+    //         formData.append(selector.name, selector.value);
+    //     }
+
+    // });
+    const request = new XMLHttpRequest();
+    request.onReadyStateChange = function() {
+        console.log(request.responseText);
+    }
+    console.log(formData.get('attachfile'));
+    request.open('POST', 'send3.php');
+    request.send(formData);
+    // if(!error) {
+    //     data = serialize(orderForm);
+    //     const request = new XMLHttpRequest();
+    //     request.onReadyStateChange = () => {
+    //         if(this.readyState === 0 && this.status === 200) {
+    //             orderForm.querySelector('input[type="submit"]').setAttribute('disabled','true');
+    //             orderForm.querySelector('input[type="submit"]').value='Подождите';
+    //         } else if(this.readyState === 4 && this.status === 200) {
+    //             alert('Письмецо отправлено');
+    //             orderForm.querySelector('input[type="submit"]').setAttribute('disabled','false');
+    //             orderForm.querySelector('input[type="submit"]').value='Прикрепить файл';
+    //         }
+    //     };
+    //     request.open('POST', 'send2.php');
+    //     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    //     console.log(request);
+    //     request.send(data);
+    // }
+    return false;
+});
