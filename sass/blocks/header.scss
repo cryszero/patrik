@@ -93,6 +93,12 @@
 .header__social-link {
     position: relative;
     z-index: 3;
+    display: block;
+
+    &:hover,
+    &:focus {
+        opacity: 0.5;
+    }
 
     &::before {
         content: '';
@@ -138,37 +144,81 @@
     padding-top: 13px;
     min-width: 99px;
     text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 0%;
+        left: 0;
+        top: 0;
+        transition: width 0.3s ease-in-out;
+        transform: translateX(0%);
+        background: red;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
 
     &--gold {
         border-color: $color-gold;
+
+        &::after {
+            background: $color-gold;
+        }
     }
 
     &--orange {
         border-color: $color-orange;
+
+        &::after {
+            background: $color-orange;
+        }
     }
 
     &--pink {
         border-color: $color-pink;
+
+        &::after {
+            background: $color-pink;
+        }
     }
 
     &--indigo {
         border-color: $color-indigo;
+
+        &::after {
+            background: $color-indigo;
+        }
     }
 
     &--blue {
         border-color: $color-blue;
+
+        &::after {
+            background: $color-blue;
+        }
     }
 
     &--lightblue {
         border-color: $color-lightblue;
+
+        &::after {
+            background: $color-lightblue;
+        }
     }
 }
 
 .header__anchor-link {
     text-decoration: none;
+    position: relative;
     color: #fff;
     font-family: 'SignPainter-HouseScript', Arial;
     font-size: 25px;
+    z-index: 6;
 }
 
 .header__bottom {

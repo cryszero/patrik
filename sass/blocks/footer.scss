@@ -140,6 +140,12 @@
 .footer__social-link {
 	position: relative;
 	z-index: 3;
+	display: block;
+
+	&:hover,
+	&:focus {
+		opacity: 0.5;
+	}
 
 	&::before {
 		content: '';
@@ -214,6 +220,10 @@
 .footer__inputs-item {
 	list-style: none;
 	margin-bottom: 22px;
+
+	& input[type="text"]:focus {
+		background: rgba(255, 255, 255, 0.7);
+	}
 
 	&:last-child {
 		margin-bottom: 0;

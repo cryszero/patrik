@@ -21,11 +21,13 @@
     $mail->Host = "smtp.yandex.ru";
     $mail->Port = 465; // or 587
     $mail->IsHTML(true);
-    $mail->Username = "cryszer0";
-    $mail->Password = "kvbbhxajbnbngiyl";
-    $mail->SetFrom("cryszer0@yandex.ru");
-    $mail->Subject = "Test";
-    $mail->Body = "ФИО: ".$name."\nКонтакты: ".$contacts."\nИнтересует услуга: ".$service."\nКомментарий: ".$comment;
+    $mail->Username = "patrik2036";
+    // $mail->Username = "cryszer0";
+    $mail->Password = "32253153";
+    // $mail->Password = "kvbbhxajbnbngiyl";
+    $mail->SetFrom("patrik2036@yandex.ru");
+    $mail->Subject = "Заявка с сайта";
+    $mail->Body = "<b>ФИО:</b> ".$name."<br/><b>Контакты:</b> ".$contacts."<br/><b>Интересует услуга:</b> ".$service."<br/><b>Комментарий:</b> ".$comment;
     // $mail->AddAddress("dmitry.patrik@gmail.com");
     $mail->AddAddress("tdwarfs@gmail.com");
     if(isset($_FILES['attachfile'])) { 
