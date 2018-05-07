@@ -265,6 +265,44 @@ footerSectionButton.forEach(button => button.addEventListener('click', () => {
     footerContent[currentButton].classList.remove([...footerContent[currentButton].classList].slice(-1));
 }));
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Отзывы
+
+const reviewButtons = [...document.querySelectorAll('.reviews__button')];
+const reviewSlides = [...document.querySelectorAll('.reviews__item')];
+const reviewPages = [...document.querySelectorAll('.reviews__page')];
+
+reviewButtons.forEach(button => button.addEventListener('click', () => {
+    let current = 0;
+    reviewSlides.forEach(slide => {
+        if (slide.classList.contains('reviews__item--visible')) {
+            current = reviewSlides.indexOf(slide);
+    }
+
+    });
+    if(button.classList.contains('reviews__button--left') && current > 0) {
+        reviewSlides.forEach(slide => slide.classList.remove('reviews__item--visible'));
+        reviewSlides[current-1].classList.add('reviews__item--visible');
+        reviewPages.forEach(page => page.classList.remove('reviews__page--active'));
+        reviewPages[current-1].classList.add('reviews__page--active');
+    } else if(button.classList.contains('reviews__button--left') && current === 0) {
+        reviewSlides.forEach(slide => slide.classList.remove('reviews__item--visible'));
+        reviewSlides[reviewSlides.length-1].classList.add('reviews__item--visible');
+        reviewPages.forEach(page => page.classList.remove('reviews__page--active'));
+        reviewPages[reviewSlides.length-1].classList.add('reviews__page--active');
+    } else if(button.classList.contains('reviews__button--right') && current < reviewSlides.length-1) {
+        reviewSlides.forEach(slide => slide.classList.remove('reviews__item--visible'));
+        reviewSlides[current+1].classList.add('reviews__item--visible');
+        reviewPages.forEach(page => page.classList.remove('reviews__page--active'));
+        reviewPages[current+1].classList.add('reviews__page--active');
+    } else {
+        reviewSlides.forEach(slide => slide.classList.remove('reviews__item--visible'));
+        reviewSlides[0].classList.add('reviews__item--visible');
+        reviewPages.forEach(page => page.classList.remove('reviews__page--active'));
+        reviewPages[0].classList.add('reviews__page--active');
+    }
+}));
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const orderForm = document.getElementById('order-form');
@@ -336,17 +374,7 @@ orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let error = false;
     const formData = new FormData(orderForm);
-    // orderForm.querySelectorAll('input').forEach(selector => {
-    //     if(selector.value === '' && selector.name!='file') {
-    //         alert('Заполните поле ' + selector.getAttribute('placeholder') + '!');
-    //         error = true;
-    //     } else if (selector.name==='file') {
-    //         formData.append('file', selector.files[0]);
-    //     } else {
-    //         formData.append(selector.name, selector.value);
-    //     }
 
-    // });
     const request = new XMLHttpRequest();
     request.onReadyStateChange = function() {
         console.log(request.responseText);
@@ -354,23 +382,5 @@ orderForm.addEventListener('submit', (e) => {
     console.log(formData.get('attachfile'));
     request.open('POST', 'send3.php');
     request.send(formData);
-    // if(!error) {
-    //     data = serialize(orderForm);
-    //     const request = new XMLHttpRequest();
-    //     request.onReadyStateChange = () => {
-    //         if(this.readyState === 0 && this.status === 200) {
-    //             orderForm.querySelector('input[type="submit"]').setAttribute('disabled','true');
-    //             orderForm.querySelector('input[type="submit"]').value='Подождите';
-    //         } else if(this.readyState === 4 && this.status === 200) {
-    //             alert('Письмецо отправлено');
-    //             orderForm.querySelector('input[type="submit"]').setAttribute('disabled','false');
-    //             orderForm.querySelector('input[type="submit"]').value='Прикрепить файл';
-    //         }
-    //     };
-    //     request.open('POST', 'send2.php');
-    //     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    //     console.log(request);
-    //     request.send(data);
-    // }
     return false;
 });
