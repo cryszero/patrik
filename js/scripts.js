@@ -384,3 +384,26 @@ orderForm.addEventListener('submit', (e) => {
     request.send(formData);
     return false;
 });
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Прокрутка 
+const navigationLinks = [...document.querySelectorAll('.header__anchor-link')],
+    scrollSpeed = 0.15;  // скорость, может иметь дробное значение через точку
+navigationLinks.forEach(link => link.addEventListener('click', (e) => {
+    e.preventDefault();
+    var windowOffset = window.pageYOffset,  // прокрутка
+        hash = link.href.replace(/[^#]*(.*)/, '$1');  // id элемента, к которому нужно перейти
+        windowMargin = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
+        start = null;
+    requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
+    function step(time) {
+      if (start === null) start = time;
+      var progress = time - start,
+          r = (windowMargin < 0 ? Math.max(windowOffset - progress/scrollSpeed, windowOffset + windowMargin) : Math.min(windowOffset + progress/scrollSpeed, windowOffset + windowMargin));
+      window.scrollTo(0,r);
+      if (r != windowOffset + windowMargin) {
+        requestAnimationFrame(step)
+      } else {
+        location.hash = hash  // URL с хэшем
+      }
+    }
+  }, false)
+);

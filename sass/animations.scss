@@ -68,3 +68,13 @@
 		transform: rotateY(180deg);
 	}
 }
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

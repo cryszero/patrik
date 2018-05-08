@@ -401,7 +401,7 @@ body {
   justify-content: center;
   max-width: 1168px;
   flex-wrap: wrap;
-  align-items: center; }
+  align-items: flex-start; }
 
 .about__statistics-item {
   flex: 1;
@@ -692,10 +692,10 @@ body {
 
 .advantages__description {
   font-family: "BebasNeue Bold", sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   text-align: justify;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 20px;
   color: rgba(0, 0, 0, 0.5); }
 
 @media (min-width: 1399px) {
@@ -760,8 +760,7 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
-  min-height: 609px;
-  margin-bottom: 24px; }
+  min-height: 633px; }
 
 .reviews__item {
   list-style: none;
@@ -772,7 +771,9 @@ body {
   margin-left: -515px;
   left: 50%; }
   .reviews__item--visible {
-    display: flex; }
+    display: flex;
+    -webkit-animation: appearance 1s;
+            animation: appearance 1s; }
 
 .reviews__item--small .reviews__review {
   max-width: 328px; }
@@ -906,7 +907,11 @@ body {
 
 .reviews__pages {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  margin-left: -70px; }
 
 .reviews__page {
   margin-right: 10px;
@@ -996,7 +1001,8 @@ body {
   font-family: "BebasNeue Bold", sans-serif;
   text-decoration: none;
   text-align: center;
-  display: table;
+  display: block;
+  max-width: 25%;
   margin: 0 auto; }
   .price__done::before {
     position: absolute;
@@ -1004,14 +1010,19 @@ body {
     height: 2px;
     content: '';
     left: -5%;
-    top: 47%;
+    top: 50%;
     background: #fff; }
 
 @media (max-width: 1000px) {
   .price__description {
     font-size: 28px; }
     .price__description span {
-      font-size: 14px; } }
+      font-size: 14px; }
+  .price__done {
+    max-width: 40%;
+    font-size: 15px; }
+    .price__done::before {
+      top: 43%; } }
 
 .footer {
   margin-top: -88px; }
@@ -1382,5 +1393,17 @@ body {
     opacity: 0;
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg); } }
+
+@-webkit-keyframes appearance {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes appearance {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 /*# sourceMappingURL=style.css.map */

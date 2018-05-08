@@ -28,8 +28,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    min-height: 609px;
-    margin-bottom: 24px;
+    min-height: 633px;
 }
 
 .reviews__item {
@@ -44,6 +43,7 @@
 
     &--visible {
         display: flex;
+        animation: appearance 1s;
     }
 }
 
@@ -230,6 +230,10 @@
 .reviews__pages {
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    margin-left: -70px;
 }
 
 .reviews__page {
