@@ -26,7 +26,7 @@
     $mail->Password = "32253153";
     // $mail->Password = "kvbbhxajbnbngiyl";
     $mail->SetFrom("patrik2036@yandex.ru");
-    $mail->Subject = "Заявка с сайта";
+    $mail->Subject = "Patrik request";
     $mail->Body = "<b>ФИО:</b> ".$name."<br/><b>Контакты:</b> ".$contacts."<br/><b>Интересует услуга:</b> ".$service."<br/><b>Комментарий:</b> ".$comment;
     // $mail->AddAddress("dmitry.patrik@gmail.com");
     $mail->AddAddress("tdwarfs@gmail.com");

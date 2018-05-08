@@ -19,7 +19,7 @@
 
 .price__list {
     padding: 0;
-    max-width: 790px;
+    max-width: 960px;
     margin: 0 auto;
     margin-bottom: 40px;
 }
@@ -74,17 +74,25 @@
     display: block;
     font-size: 31px;
 
-    &--light {
-        background: #eeeff0;
+    &--eng {
+        background: inherit;
     }
 }
 
 .price__item--light .price__amount {
     background: #dadbdc;
+
+    &--eng {
+        background: inherit;
+    }
 }
 
 .price__item--dark .price__amount {
     background: #eeeff0;
+
+    &--eng {
+        background: inherit;
+    }
 }
 
 .price__done {
@@ -98,15 +106,10 @@
     max-width: 25%;
 	margin: 0 auto;
 
-	&::before {
-		position: absolute;
-		width: 110%;
-		height: 2px;
-		content: '';
-		left: -5%;
-		top: 50%;
-		background: #fff;
-	}
+    &:hover,
+    &:focus {
+        opacity: 0.6;
+    }
 }
 
 @media (max-width: 1000px) {

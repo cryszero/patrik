@@ -163,22 +163,7 @@ const videos = [
     }
 ];
 
-// var tag = document.createElement('script');
-// tag.src = "https://www.youtube.com/player_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 var player;
-
-// function onYouTubePlayerAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '357',
-//         width: '636',
-//         videoId: 'Rs1UrDFGEG4'
-//     });
-//     player.getIframe().src = videoSrc[0];
-//     playerWindow = document.getElementById('player');
-// }
 
 player = document.createElement('iframe');
 player.id = 'iframe';
@@ -236,15 +221,19 @@ buttonsPortfolio.forEach(button => button.addEventListener('click', () => {
     if (button.classList.contains('portfolio__button--prev') && current != 0) {
         slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
         slidesPortfolio[current - 1].classList.remove('portfolio__slide--hidden');
-        // player.getIframe().src = videoSrc[current-1] || videoSrc[0];
         playerSlide(videos, current-1);
-    }
-    if (button.classList.contains('portfolio__button--next') && current < slidesPortfolio.length - 1) {
+    } else if (button.classList.contains('portfolio__button--prev') && current === 0) {
+        slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
+        slidesPortfolio[slidesPortfolio.length-1].classList.remove('portfolio__slide--hidden');
+        playerSlide(videos, slidesPortfolio.length-1);
+    } else if (button.classList.contains('portfolio__button--next') && current < slidesPortfolio.length - 1) {
         slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
         slidesPortfolio[current + 1].classList.remove('portfolio__slide--hidden');
-        // player.getIframe().src = videoSrc[current+1] || videoSrc[0];
         playerSlide(videos, current+1);
-
+    } else {
+        slidesPortfolio.forEach(slide => slide.classList.add('portfolio__slide--hidden'));
+        slidesPortfolio[0].classList.remove('portfolio__slide--hidden');
+        playerSlide(videos, 0);
     }
 }));
 
@@ -306,6 +295,8 @@ reviewButtons.forEach(button => button.addEventListener('click', () => {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const orderForm = document.getElementById('order-form');
+const footerModal = document.querySelector('.footer__modal');
+const modalClose = [...footerModal.querySelectorAll('.modal-close')]; // можно поменять footerModal на document и модалки будут закрываться по всему сайту
 
 function serialize (form) {
     if (!form || form.nodeName !== "FORM") {
@@ -370,19 +361,36 @@ function serialize (form) {
     return q.join("&");
 }
 
+modalClose.forEach(btn => btn.addEventListener('click', () => {
+    btn.parentNode.classList.remove(btn.parentNode.classList[0] + '--visible');
+}));
+
 orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let error = false;
-    const formData = new FormData(orderForm);
+    orderForm.querySelectorAll('input[type="text"]').forEach(input => {
+        if(input.value==='') {
+            error = true;
+            alert('Заполните поле "'  + input.placeholder + '", пожалуйста!');
+        }
+    });
+    if(!error) {
+        const formData = new FormData(orderForm);
+        const request = new XMLHttpRequest();
+        request.open('POST', 'send3.php', true);
+        request.onreadystatechange = function(data) {
+            if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                footerModal.classList.add('footer__modal--visible');
+                footerModal.children[0].textContent = 'Форма была отправлена!';
+            } else {
+                footerModal.classList.add('footer__modal--visible');
+                footerModal.children[0].textContent = 'Форма была не была отправлена! ):';
+            }
+        } 
 
-    const request = new XMLHttpRequest();
-    request.onReadyStateChange = function() {
-        console.log(request.responseText);
-    }
-    console.log(formData.get('attachfile'));
-    request.open('POST', 'send3.php');
-    request.send(formData);
-    return false;
+        request.send(formData);
+        return false;
+    }   
 });
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Прокрутка 
 const navigationLinks = [...document.querySelectorAll('.header__anchor-link')],
