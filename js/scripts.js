@@ -377,7 +377,7 @@ orderForm.addEventListener('submit', (e) => {
     if(!error) {
         const formData = new FormData(orderForm);
         const request = new XMLHttpRequest();
-        request.open('POST', 'send3.php', true);
+        request.open('POST', 'send.php', true);
         request.onreadystatechange = function(data) {
             if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
                 footerModal.classList.add('footer__modal--visible');
