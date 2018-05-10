@@ -28,8 +28,8 @@
     $mail->SetFrom("patrik2036@yandex.ru");
     $mail->Subject = "Patrik request";
     $mail->Body = "<b>ФИО:</b> ".$name."<br/><b>Контакты:</b> ".$contacts."<br/><b>Интересует услуга:</b> ".$service."<br/><b>Комментарий:</b> ".$comment;
-    // $mail->AddAddress("dmitry.patrik@gmail.com");
-    $mail->AddAddress("tdwarfs@gmail.com");
+    $mail->AddAddress("dmitry.patrik@gmail.com");
+    // $mail->AddAddress("tdwarfs@gmail.com");
     if(isset($_FILES['attachfile'])) { 
                 if($_FILES['attachfile']['error'] == 0){ 
                         $mail->AddAttachment($_FILES['attachfile']['tmp_name'], $_FILES['attachfile']['name']); 
