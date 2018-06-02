@@ -760,15 +760,14 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
-  min-height: 633px; }
+  min-height: 633px;
+  justify-content: center; }
 
 .reviews__item {
   list-style: none;
   display: none;
   justify-content: space-between;
-  position: absolute;
   min-width: 1030px;
-  margin-left: -515px;
   left: 50%; }
   .reviews__item--visible {
     display: flex;
@@ -783,6 +782,7 @@ body {
 
 .reviews__item--large .reviews__review {
   max-width: 900px;
+  max-height: 633px;
   margin: 0 auto; }
 
 .reviews__item--large .reviews__text {
@@ -1308,7 +1308,8 @@ body {
   top: 0;
   right: 0;
   width: 20px;
-  height: 20px; }
+  height: 20px;
+  cursor: pointer; }
   .footer__modal-close::before {
     position: absolute;
     display: block;

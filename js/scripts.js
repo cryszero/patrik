@@ -379,15 +379,15 @@ orderForm.addEventListener('submit', (e) => {
         const request = new XMLHttpRequest();
         request.open('POST', 'send.php', true);
         request.onreadystatechange = function(data) {
+            console.log(request.readyState, request.responseText, request.status);
             if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
                 footerModal.classList.add('footer__modal--visible');
                 footerModal.children[0].textContent = 'Форма была отправлена!';
             } else {
                 footerModal.classList.add('footer__modal--visible');
-                footerModal.children[0].textContent = 'Форма была не была отправлена! ):';
+                footerModal.children[0].textContent = 'Форма не была отправлена! ):';
             }
-        } 
-
+        }
         request.send(formData);
         return false;
     }   
